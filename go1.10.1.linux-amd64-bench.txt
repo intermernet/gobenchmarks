@@ -1,0 +1,78 @@
+goos: linux
+goarch: amd64
+pkg: archive/tar
+Benchmark/Writer/USTAR-2   	  200000	     11292 ns/op	    1424 B/op	      56 allocs/op
+Benchmark/Writer/GNU-2     	  100000	     13523 ns/op	    1616 B/op	      62 allocs/op
+Benchmark/Writer/PAX-2     	   50000	     22383 ns/op	    2960 B/op	     114 allocs/op
+Benchmark/Reader/USTAR-2   	  200000	     11196 ns/op	    1427 B/op	      33 allocs/op
+Benchmark/Reader/GNU-2     	  200000	      6761 ns/op	    1387 B/op	      31 allocs/op
+Benchmark/Reader/PAX-2     	  100000	     25706 ns/op	    3543 B/op	      68 allocs/op
+PASS
+ok  	archive/tar	11.897s
+goos: linux
+goarch: amd64
+pkg: archive/zip
+BenchmarkCompressedZipGarbage-2   	     100	  23369044 ns/op	   13913 B/op	      44 allocs/op
+BenchmarkZip64Test-2              	      10	 164291581 ns/op
+BenchmarkZip64TestSizes/4096-2    	   50000	     39138 ns/op
+BenchmarkZip64TestSizes/1048576-2 	    1000	   1964435 ns/op
+BenchmarkZip64TestSizes/67108864-2         	      10	 116510455 ns/op
+PASS
+ok  	archive/zip	11.080s
+goos: linux
+goarch: amd64
+pkg: bufio
+BenchmarkReaderCopyOptimal-2      	 5000000	       244 ns/op
+BenchmarkReaderCopyUnoptimal-2    	 5000000	       402 ns/op
+BenchmarkReaderCopyNoWriteTo-2    	  200000	      9190 ns/op
+BenchmarkReaderWriteToOptimal-2   	 2000000	       750 ns/op
+BenchmarkWriterCopyOptimal-2      	 5000000	       249 ns/op
+BenchmarkWriterCopyUnoptimal-2    	 5000000	       342 ns/op
+BenchmarkWriterCopyNoReadFrom-2   	  200000	      9621 ns/op
+BenchmarkReaderEmpty-2            	  500000	      2244 ns/op	    4224 B/op	       3 allocs/op
+BenchmarkWriterEmpty-2            	 1000000	      1875 ns/op	    4096 B/op	       1 allocs/op
+BenchmarkWriterFlush-2            	50000000	        28.0 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	bufio	18.232s
+?   	builtin	[no test files]
+goos: linux
+goarch: amd64
+pkg: bytes
+BenchmarkReadString-2                    	  100000	     13943 ns/op	2350.06 MB/s
+BenchmarkWriteByte-2                     	   50000	     31410 ns/op	 130.40 MB/s
+BenchmarkWriteRune-2                     	   50000	     39566 ns/op	 310.57 MB/s
+BenchmarkBufferNotEmptyWriteRead-2       	    5000	    289788 ns/op
+BenchmarkBufferFullSmallReads-2          	   20000	     67109 ns/op
+BenchmarkIndexByte/10-2                  	300000000	         4.25 ns/op	2351.79 MB/s
+BenchmarkIndexByte/32-2                  	300000000	         5.34 ns/op	5997.49 MB/s
+BenchmarkIndexByte/4K-2                  	20000000	       109 ns/op	37562.73 MB/s
+BenchmarkIndexByte/4M-2                  	   10000	    182684 ns/op	22959.33 MB/s
+BenchmarkIndexByte/64M-2                 	     200	  10635370 ns/op	6309.97 MB/s
+BenchmarkIndexBytePortable/10-2          	200000000	         7.56 ns/op	1322.95 MB/s
+BenchmarkIndexBytePortable/32-2          	50000000	        37.6 ns/op	 850.81 MB/s
+BenchmarkIndexBytePortable/4K-2          	 1000000	      1584 ns/op	2585.55 MB/s
+BenchmarkIndexBytePortable/4M-2          	    1000	   1623048 ns/op	2584.21 MB/s
+BenchmarkIndexBytePortable/64M-2         	      50	  28102585 ns/op	2388.00 MB/s
+BenchmarkIndexRune/10-2                  	100000000	        19.6 ns/op	 511.29 MB/s
+BenchmarkIndexRune/32-2                  	100000000	        21.6 ns/op	1480.78 MB/s
+BenchmarkIndexRune/4K-2                  	10000000	       129 ns/op	31741.33 MB/s
+BenchmarkIndexRune/4M-2                  	   10000	    181772 ns/op	23074.46 MB/s
+BenchmarkIndexRune/64M-2                 	     100	  10635622 ns/op	6309.82 MB/s
+BenchmarkIndexRuneASCII/10-2             	200000000	         6.88 ns/op	1454.13 MB/s
+BenchmarkIndexRuneASCII/32-2             	200000000	         8.49 ns/op	3768.37 MB/s
+BenchmarkIndexRuneASCII/4K-2             	20000000	       111 ns/op	36699.16 MB/s
+BenchmarkIndexRuneASCII/4M-2             	   10000	    188420 ns/op	22260.36 MB/s
+BenchmarkIndexRuneASCII/64M-2            	     100	  10524148 ns/op	6376.66 MB/s
+BenchmarkEqual/0-2                       	500000000	         3.79 ns/op
+BenchmarkEqual/1-2                       	300000000	         4.95 ns/op	 202.18 MB/s
+BenchmarkEqual/6-2                       	300000000	         4.94 ns/op	1213.40 MB/s
+BenchmarkEqual/9-2                       	300000000	         5.66 ns/op	1589.71 MB/s
+BenchmarkEqual/15-2                      	300000000	         5.66 ns/op	2648.17 MB/s
+BenchmarkEqual/16-2                      	300000000	         5.66 ns/op	2825.54 MB/s
+BenchmarkEqual/20-2                      	200000000	         6.80 ns/op	2940.94 MB/s
+BenchmarkEqual/32-2                      	200000000	         7.59 ns/op	4218.33 MB/s
+BenchmarkEqual/4K-2                      	20000000	        83.6 ns/op	48995.17 MB/s
+BenchmarkEqual/4M-2                      	    5000	    301253 ns/op	13922.85 MB/s
+BenchmarkEqual/64M-2                     	     100	  18139126 ns/op	3699.67 MB/s
+BenchmarkEqualPort/1-2                   	signal: interrupt
+FAIL	bytes	71.627s
