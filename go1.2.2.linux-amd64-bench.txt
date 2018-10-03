@@ -1,0 +1,10 @@
+FAIL	archive/tar [build failed]
+PASS
+BenchmarkZip64Test	      10	 140167814 ns/op
+ok  	archive/zip	1.627s
+PASS
+BenchmarkReaderCopyOptimal	 1000000	      1822 ns/op
+BenchmarkReaderCopyUnoptimal	  200000	      9052 ns/op
+BenchmarkReaderCopyNoWriteTo	  100000	     21095 ns/op
+BenchmarkWriterCopyOptimal	  500000	      5326 ns/op
+BenchmarkWriterCopyUnoptimal	
